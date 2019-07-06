@@ -28,11 +28,11 @@ Arquivo 2: dados de pessoas das áreas de ponderação do estado do Acre
 Link: https://www.dropbox.com/s/mgimenvj3p0bbtx/censo_ac_pes.zip?dl=0
 #####################################################################################################################################
 
-Hipotese 1: 
-[Variáveis que serão utilizadas]:
+Hipotese 1: A ocorrência de natimortos tem maior frequência em famílias de baixa renda.
+[Variáveis que serão utilizadas]: Pessoas de 10 anos ou mais de idade por classes de rendimento nominal mensal de até 1 (salário mínimo), Pessoas de 10 anos ou mais de idade por classes de rendimento nominal mensal de mais de 1 a 2 (salário mínimo), Pessoas de 10 anos ou mais de idade por classes de rendimento nominal mensal de mais de 2 a 3 (salário mínimo), Pessoas de 10 anos ou mais de idade por classes de rendimento nominal mensal de mais de 3 a 5 (salário mínimo), Pessoas de 10 anos ou mais de idade por classes de rendimento nominal mensal de mais de 5 a 10 (salário mínimo), Pessoas de 10 anos ou mais de idade por classes de rendimento nominal mensal de mais de 10 a 20 (salário mínimo), Pessoas de 10 anos ou mais de idade por classes de rendimento nominal mensal de mais de 20 (salário mínimo), Pessoas de 10 anos ou mais de idade por classes de rendimento nominal mensal - sem rendimento, Filhos tidos pelas mulheres de 10 anos ou mais de idade nascidos mortos.
 
-Hipotese 2: 
-[Variáveis que serão utilizadas]:
+Hipotese 2: Pessoas com maior formação universitária casam-se menos.
+[Variáveis que serão utilizadas]: Pessoas que frequentavam curso de Alfabetização de jovens e adultos, Pessoas que frequentavam curso de Ensino Fundamental, Pessoas que frequentavam curso de Ensino Médio, Pessoas que frequentavam curso Superior de graduação, Pessoas que frequentavam curso de Especialização de nível superior, mestrado ou doutorado, Pessoas de 10 anos ou mais de idade com o estado civil - Casado(a).
 
 Hipotese 3: 
 [Variáveis que serão utilizadas]:
