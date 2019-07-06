@@ -1,23 +1,45 @@
 Objetivo do trabalho: 
-Cada grupo deve formular cinco hipóteses para uma determinada área de ponderação de cada arquivo, totalizando 10 hipóteses. 
-Para auxiliar a escolha sugere-se que o grupo consulte https://censo2010.ibge.gov.br/apps/areaponderacao/ para identificar a região geográfica que
-a área de ponderação corresponde. Os grupos devem indicar, via atividade “AP e Hipóteses” no TIDIA, quais as áreas de ponderação escolhidas e as 
-hipóteses até o dia 15/07.
+cada grupo deve formular cinco hipóteses para uma determinada área de ponderação de cada arquivo, totalizando 10 hipóteses. 
+Para auxiliar a escolha sugere-se que o grupo consulte https://censo2010.ibge.gov.br/apps/areaponderacao/ para identificar a região geográfica que a área de ponderação corresponde. Os grupos devem indicar, via atividade “AP e Hipóteses” no TIDIA, quais as áreas de ponderação escolhidas e as hipóteses até o dia 15/07.
+
+#####################################################################################################################################
+[Arquivo 1]: dados de domícilios das áreas de ponderação do estado de São Paulo.
+[Link]: https://www.dropbox.com/s/1dcytklu3agu91f/censo_sp_dom.zip?dl=0
+#####################################################################################################################################
+
+[Hipotese 1]: A falta de água canalizada nos domicílios tem relação direta com a baixa qualidade externa das casas.            
+[Variáveis que serão utilizadas]: Domicílios particulares permanentes com paredes externas de alvenaria com revestimento, Domicílios particulares permanentes com paredes externas de alvenaria sem revestimento, Domicílios particulares permanentes com paredes externas de madeira aparelhada, Domicílios particulares permanentes com paredes externas de taipa revestida, Domicílios particulares permanentes com paredes externas de taipa não revestida, Domicílios particulares permanentes com paredes externas de madeira aproveitada, Domicílios particulares permanentes com paredes externas de palha, Domicílios particulares permanentes com paredes externas de outro tipo de revestimento, Domicílios particulares permanentes que não tinham água canalizada.
+
+[Hipotese 2]: Domicílios que possuem automóvel particular são os mesmos que apresentam maiores renda per capita.
+[Variáveis que serão utilizadas]: Domicílios particulares permanentes por classes de rendimento nominal mensal domiciliar per capita de até ¼ (salário mínimo), Domicílios particulares permanentes por classes de rendimento nominal mensal domiciliar per capita de mais de 1/4 a 1/2 (salário mínimo), Domicílios particulares permanentes por Classes de rendimento nominal mensal domiciliar per capita de mais de 1/2 a 1(salário mínimo), Domicílios particulares permanentes por Classes de rendimento nominal mensal domiciliar per capita de mais de 1 a 2 (salário mínimo), Domicílios particulares permanentes por Classes de rendimento nominal mensal domiciliar per capita de mais de 2 a 3 (salário mínimo), Domicílios particulares permanentes por Classes de rendimento nominal mensal domiciliar per capita de mais de 3 a 5 (salário mínimo), Domicílios particulares permanentes por Classes de rendimento nominal mensal domiciliar per capita de mais de 5 (salário mínimo), Domicílios particulares permanentes por Classes de rendimento nominal mensal domiciliar per capita - Sem rendimento, Domicílios particulares permanentes com Automóvel para uso particular.
+
+[Hipotese 3]: Domicílios com 8 ou mais cômodos são um privilégio de quem possui maior renda per capita.
+[Variáveis que serão utilizadas]: Domicílios particulares permanentes por classes de rendimento nominal mensal domiciliar per capita de até ¼ (salário mínimo), Domicílios particulares permanentes por classes de rendimento nominal mensal domiciliar per capita de mais de 1/4 a 1/2 (salário mínimo), Domicílios particulares permanentes por Classes de rendimento nominal mensal domiciliar per capita de mais de 1/2 a 1(salário mínimo), Domicílios particulares permanentes por Classes de rendimento nominal mensal domiciliar per capita de mais de 1 a 2 (salário mínimo), Domicílios particulares permanentes por Classes de rendimento nominal mensal domiciliar per capita de mais de 2 a 3 (salário mínimo), Domicílios particulares permanentes por Classes de rendimento nominal mensal domiciliar per capita de mais de 3 a 5 (salário mínimo), Domicílios particulares permanentes por Classes de rendimento nominal mensal domiciliar per capita de mais de 5 (salário mínimo), Domicílios particulares permanentes por Classes de rendimento nominal mensal domiciliar per capita - Sem rendimento, Domicílios particulares permanentes com 8 cômodos ou mais.
+
+[Hipotese 4]: A presença de telefone fixo e celular ocorre com mais frequência nas casas com melhores acabamentos.
+[Variáveis que serão utilizadas]: Domicílios particulares permanentes com paredes externas de alvenaria com revestimento, Domicílios particulares permanentes com paredes externas de alvenaria sem revestimento, Domicílios particulares permanentes com paredes externas de madeira aparelhada, Domicílios particulares permanentes com paredes externas de taipa revestida, Domicílios particulares permanentes com paredes externas de taipa não revestida, Domicílios particulares permanentes com paredes externas de madeira aproveitada, Domicílios particulares permanentes com paredes externas de palha, Domicílios particulares permanentes com paredes externas de outro tipo de revestimento, Domicílios particulares permanentes que tinham telefone fixo e celular.
+
+[Hipotese 5]: É mais fácil encontrarmos computadores com acesso à internet nas casas com mais dormitórios.
+[Variáveis que serão utilizadas]: Moradores em domicílios particulares permanentes com 1 dormitório, Moradores em domicílios particulares permanentes com 2 dormitórios, Moradores em domicílios particulares permanentes com 3 dormitórios, Moradores em domicílios particulares permanentes com 4 dormitórios ou mais, Domicílios particulares permanentes com Microcomputador com acesso à Internet.
 
 
-Arquivo 1: dados de domícilios das áreas de ponderação do estado de São Paulo.
-Link: https://www.dropbox.com/s/1dcytklu3agu91f/censo_sp_dom.zip?dl=0
-Hipotese 1: Domicílios particulares permanentes com paredes externas de alvenaria sem revestimento
-Hipotese 2: Domicílios particulares permanentes com 1 cômodo
-Hipotese 3: Domicílios particulares permanentes que não tinham água canalizada
-Hipotese 4: Domicílios particulares permanentes que não tinham telefone
-Hipotese 5: Domicílios particulares permanentes por Classes de rendimento nominal mensal domiciliar per capita de mais de 1/2 a 1(salário mínimo)
-
-
+#####################################################################################################################################
 Arquivo 2: dados de pessoas das áreas de ponderação do estado do Acre
 Link: https://www.dropbox.com/s/mgimenvj3p0bbtx/censo_ac_pes.zip?dl=0
-Hipotese 1: Pessoas de 14 anos ou mais de idade não economicamente ativas
-Hipotese 2: Pessoas ocupadas na semana de referência com tempo habitual de deslocamento para o trabalho de mais de duas horas
-Hipotese 3: Pessoas de 10 anos ou mais de idade por classes de rendimento nominal mensal de até 1 (salário mínimo)
-Hipotese 4: Pessoas de 10 anos ou mais de idade por classes de rendimento nominal mensal - sem rendimento
-Hipotese 5: Mulheres de 10 anos ou mais de idade, com rendimento
+#####################################################################################################################################
+
+Hipotese 1: 
+[Variáveis que serão utilizadas]:
+
+Hipotese 2: 
+[Variáveis que serão utilizadas]:
+
+Hipotese 3: 
+[Variáveis que serão utilizadas]:
+
+Hipotese 4: 
+[Variáveis que serão utilizadas]:
+
+Hipotese 5: 
+[Variáveis que serão utilizadas]:
+			
