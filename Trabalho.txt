@@ -1,0 +1,23 @@
+Objetivo do trabalho: 
+Cada grupo deve formular cinco hipóteses para uma determinada área de ponderação de cada arquivo, totalizando 10 hipóteses. 
+Para auxiliar a escolha sugere-se que o grupo consulte https://censo2010.ibge.gov.br/apps/areaponderacao/ para identificar a região geográfica que
+a área de ponderação corresponde. Os grupos devem indicar, via atividade “AP e Hipóteses” no TIDIA, quais as áreas de ponderação escolhidas e as 
+hipóteses até o dia 15/07.
+
+
+Arquivo 1: dados de domícilios das áreas de ponderação do estado de São Paulo.
+Link: https://www.dropbox.com/s/1dcytklu3agu91f/censo_sp_dom.zip?dl=0
+Hipotese 1: Domicílios particulares permanentes com paredes externas de alvenaria sem revestimento
+Hipotese 2: Domicílios particulares permanentes com 1 cômodo
+Hipotese 3: Domicílios particulares permanentes que não tinham água canalizada
+Hipotese 4: Domicílios particulares permanentes que não tinham telefone
+Hipotese 5: Domicílios particulares permanentes por Classes de rendimento nominal mensal domiciliar per capita de mais de 1/2 a 1(salário mínimo)
+
+
+Arquivo 2: dados de pessoas das áreas de ponderação do estado do Acre
+Link: https://www.dropbox.com/s/mgimenvj3p0bbtx/censo_ac_pes.zip?dl=0
+Hipotese 1: Pessoas de 14 anos ou mais de idade não economicamente ativas
+Hipotese 2: Pessoas ocupadas na semana de referência com tempo habitual de deslocamento para o trabalho de mais de duas horas
+Hipotese 3: Pessoas de 10 anos ou mais de idade por classes de rendimento nominal mensal de até 1 (salário mínimo)
+Hipotese 4: Pessoas de 10 anos ou mais de idade por classes de rendimento nominal mensal - sem rendimento
+Hipotese 5: Mulheres de 10 anos ou mais de idade, com rendimento
