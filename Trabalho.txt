@@ -55,6 +55,9 @@ Hipotese 3: A grande maioria de diretores e gerentes possuem curso de especializ
 
 Hipotese 4: Pessoas com baixa instrução trabalham mais horas por semana.
 [Variáveis que serão utilizadas]: Pessoas que frequentavam curso de Alfabetização de jovens e adultos, Pessoas que frequentavam curso de Ensino Fundamental, Pessoas que frequentavam curso de Ensino Médio, Pessoas que frequentavam curso Superior de graduação, Pessoas que frequentavam curso de Especialização de nível superior, mestrado ou doutorado, Pessoas de 10 anos ou mais de idade, ocupadas na semana de referência que trabalhavam habitualmente 49 horas ou mais por semana no trabalho principal.
+[Campo 1]: V0633 (Valores: 01 – Creche, Pré-escolar (Maternal e Jardim de Infância), Classe de alfabetização - CA. / 02 - Alfabetização de Jovens e Adultos. / 03 – Antigo Primário (Elementar). / 04 – Antigo Ginásio - Médio 1 Ciclo. / 05 – Regular do Ensino Fundamental ou 1 Grau - da 1 série/4ano. / 06 – Regular do Ensino Fundamental ou 1 Grau - da 4 série/5ano. / 07 - Regular do Ensino Fundamental ou 1 Grau - da 5 a 8 série do 6 ao 9 ano. / 08 - Supletivo do Ensino Fundamental ou do 1 Grau. / 09 - Antigo Científico, Clássico, etc. (Médio 2 ciclo). / 10 - Regular ou Supletivo do Ensino Médio ou do 2 Grau. / 11 - Superior de Graduação. / 12 - Especialização de Nível Superior - mínimo de 360 horas. / 13 – Mestrado. / 14 - Doutorado. / Branco: para os que frequentavam escola ou creche ou aqueles que nunca frequentaram).
+[Campo 2]: 
+
 
 Hipotese 5: 
 [Variáveis que serão utilizadas]:	
