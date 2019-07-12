@@ -1,0 +1,62 @@
+############
+EXERCICIO 1
+########################
+OPÇÃO				|	TRAJETO	|	PREÇO		|	TEMPO	|	QTD. HORARIOS	|	PASSEIO
+1 táxi				|	15000 m	|	R$ 40,00	|	10 min.	|	vários			|	0 m.
+1 ônibus			|	20 km	|	R$ 5,00		|	25 min.	|	2 por hora		|	0,5 km.
+2 ônibus			|	25 km	|	R$ 5,00		|	0,5 h.	|	20 por dia		|	200 m.
+1 ônibus+1 trem		|	21,5 km	|	R$ 6,00		|	23 min.	|	18 por dia		|	50 m.
+3 ônibus			|	21,5 km	|	R$ 5,00		|	25 min.	|	3 por hora		|	1000 m.
+2 trens				|	30 km	|	R$ 6,50		|	45 min.	|	40 por dia		|	300 m.
+1 ônibus+2 trens	|	35 km	|	R$ 7,00		|	50 min.	|	40 por dia		|	100 m.
+2 ônibus+1 trem		|	30 km	|	R$ 6,80		|	1 h.	|	18 por dia		|	0,5 km.
+
+
+1-Domínios:
+	Os atributos Trajeto, Tempo, Qtd. Horários e Passeio apresentam unidades de medida no mesmo campo numérico.
+	Para facilitar a consulta e manipulação de dados nesses campos é necessário separar a informação numérica da unidade.
+	
+OPÇÃO				|	TRAJETO	|	TRAJETO UND.	|	PREÇO		|	TEMPO	|	TEMP UND.	|	QTD. HORARIOS	|	HORARIOS UND.	|	PASSEIO		|	PASSEIO UND.
+1 táxi				|	15000 	|		m			|	R$ 40,00	|	10		|		min.	|					|		varios		|	0			|		m.
+1 ônibus			|	20 		|		km			|	R$ 5,00		|	25		|		min.	|	2				|		por hora	|	0,5			|		km.
+2 ônibus			|	25 		|		km			|	R$ 5,00		|	0,5		|		h.		|	20				|		por dia		|	200			|		m.
+1 ônibus+1 trem		|	21,5 	|		km			|	R$ 6,00		|	23		|		min.	|	18				|		por dia		|	50			|		m.
+3 ônibus			|	21,5 	|		km			|	R$ 5,00		|	25		|		min.	|	3				|		por hora	|	1000		|		m.
+2 trens				|	30 		|		km			|	R$ 6,50		|	45		|		min.	|	40				|		por dia		|	300			|		m.
+1 ônibus+2 trens	|	35 		|		km			|	R$ 7,00		|	50		|		min.	|	40				|		por dia		|	100			|		m.
+2 ônibus+1 trem		|	30 		|		km			|	R$ 6,80		|	1		|		h.		|	18				|		por dia		|	0,5			|		km.
+
+
+2-Organização:
+	Para melhorar a modelagem dos dados, foi separado as opções de transporte das quantidades respectivas.
+	
+OPÇÃO 1				|	OPÇÃO 1 QTD	|	OPÇÃO 2		|	OPÇÃO 2 QTD	|	TRAJETO	|	TRAJETO UND.	|	PREÇO		|	TEMPO	|	TEMP UND.	|	QTD. HORARIOS	|	HORARIOS UND.	|	PASSEIO		|	PASSEIO UND.
+táxi				|		1		|				|				|	15000 	|		m			|	R$ 40,00	|	10		|		min.	|					|		varios		|	0			|		m.
+ônibus				|		1		|				|				|	20 		|		km			|	R$ 5,00		|	25		|		min.	|	2				|		por hora	|	0,5			|		km.
+ônibus				|		2		|				|				|	25 		|		km			|	R$ 5,00		|	0,5		|		h.		|	20				|		por dia		|	200			|		m.
+ônibus				|		1		|	trem		|		1		|	21,5 	|		km			|	R$ 6,00		|	23		|		min.	|	18				|		por dia		|	50			|		m.
+ônibus				|		3		|				|				|	21,5 	|		km			|	R$ 5,00		|	25		|		min.	|	3				|		por hora	|	1000		|		m.
+trens				|		2		|				|				|	30 		|		km			|	R$ 6,50		|	45		|		min.	|	40				|		por dia		|	300			|		m.
+ônibus				|		1		|	trem		|		2		|	35 		|		km			|	R$ 7,00		|	50		|		min.	|	40				|		por dia		|	100			|		m.
+ônibus				|		2		|	trem		|		1		|	30 		|		km			|	R$ 6,80		|	1		|		h.		|	18				|		por dia		|	0,5			|		km.
+
+
+############
+EXERCICIO 2
+########################
+#1 tarefa
+import pandas as lerArquivo
+idh = lerArquivo.read_csv("c:/users/alexsantos/Downloads/idh.csv", sep=";")
+condicao = (idh["UF"] == "AC") & (idh["IDHM"] > 0)
+print(idh[condicao])
+	
+#2 tarefa	
+import pandas as lerArquivo
+idh = lerArquivo.read_csv("c:/users/alexsantos/Downloads/idh.csv", sep=";")
+print(idh.sort_values(by=["UF","MUNICIPIO"], ascending=True))
+	
+#3 tarefa	
+import pandas as lerArquivo
+idh = lerArquivo.read_csv("c:/users/alexsantos/Downloads/idh.csv", sep=";")
+condicao = (idh["REALIZACAO"] == 1991) & (idh["IDHM"] != 0)
+grouped_multiple = idh.groupby(["REGIAO"]).avg(["LONGVD","EDUCACAO","IDHM"])
