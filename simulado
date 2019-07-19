@@ -1,0 +1,58 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Jul 19 10:41:35 2019
+
+@author: santos.alex
+"""
+import pandas as pd
+imdb = pd.read_csv("bases/imdb.csv", sep=";")
+
+
+"""
+Exercício 1
+Existe correlação entre rating médio e share? Justifique.
+"""
+
+resp1="Rating médio é a média da classificação fornecida pelos telespectadores. Share é o número de pessoas assistindo ao título dividido pela quantidade total de telespectadores. Quanto maior o rating medio, aparentemente, o share também aumenta."
+print(resp1)
+print(imdb.corr())
+
+
+"""
+Exercício 2
+Considere uma regressão linear com as variáveis rating médio e share. Caso o produtor da série quisesse aumentar o share em 5
+unidades percentuais, quantas unidades de rating ele precisaria ter a mais (em média)? Qual seria a variável dependente e qual
+a independente na sua regressão.
+"""
+
+
+
+
+imdb.plot(x="rating_medio", y="share", kind="scatter")
+
+     
+
+#colunas = ["temporada", "titulo", "rating_medio", "share", "gen_Drama","gen_Crime", "gen_Mystery", "gen_Comedy", "gen_Action", "ano_lancamento"]
+#print(imdb[colunas])
+
+
+#print(imdb.columns)
+
+
+
+"""
+Exercício 3
+Qual a temporada de maior rating médio de cada série?
+"""
+
+pivot_rating_medio = pd.pivot_table(imdb, values = ['rating_medio'], index = ['titulo','temporada'], aggfunc = sum)
+pivot_rating_medio.sort_values(by="rating_medio",ascending=False,inplace=True)
+print(pivot_rating_medio)
+
+
+"""
+Exercício 4
+Encontre as 3 séries com mais temporadas, mostre para cada uma delas uma linha em um gráfico de linhas usando ano no eixo
+x e rating médio no y.
+"""
+pivot_rating_medio = pd.pivot_table(imdb, values = ['rating_medio'], index = ['titulo','temporada'], aggfunc = sum)
