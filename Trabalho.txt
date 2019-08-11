@@ -6,7 +6,7 @@ Para auxiliar a escolha sugere-se que o grupo consulte https://censo2010.ibge.go
 [Arquivo 1]: dados de domícilios das áreas de ponderação do estado de São Paulo.
 [Link]: https://www.dropbox.com/s/1dcytklu3agu91f/censo_sp_dom.zip?dl=0
 [Codigo dos municios]: http://www.asstecnologia.com.br/blog/?p=1496
-Será realizada a análise nos municípios de Diadema, Guarujá, Mauá, Praia Grande, Santo André, Santos, São Bernardo do Campo, São Vicente (Estado de São Paulo).
+Será realizada a análise nos municípios de Diadema (13801), Guarujá (18701), Mauá (29401), Praia Grande (41000), Santo André (47809), Santos (48500), São Bernardo do Campo (48708), São Vicente (51009) (Estado de São Paulo).
 #####################################################################################################################################
 
 [Hipotese 1]: A falta de água canalizada nos domicílios tem relação direta com a baixa qualidade externa das casas.           
