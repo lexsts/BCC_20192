@@ -5,6 +5,7 @@ Para auxiliar a escolha sugere-se que o grupo consulte https://censo2010.ibge.go
 #####################################################################################################################################
 [Arquivo 1]: dados de domícilios das áreas de ponderação do estado de São Paulo.
 [Link]: https://www.dropbox.com/s/1dcytklu3agu91f/censo_sp_dom.zip?dl=0
+Será realizada a análise nos municípios de Diadema, Guarujá, Mauá, Praia Grande, Santo André, Santos, São Bernardo do Campo, São Vicente (Estado de São Paulo).
 #####################################################################################################################################
 
 [Hipotese 1]: A falta de água canalizada nos domicílios tem relação direta com a baixa qualidade externa das casas.           
@@ -33,6 +34,7 @@ Para auxiliar a escolha sugere-se que o grupo consulte https://censo2010.ibge.go
 #####################################################################################################################################
 Arquivo 2: dados de pessoas das áreas de ponderação do estado do Acre
 Link: https://www.dropbox.com/s/mgimenvj3p0bbtx/censo_ac_pes.zip?dl=0
+Será realizada a análise no município de Rio Branco (Estado do Acre).
 #####################################################################################################################################
 
 Hipotese 1: A ocorrência de natimortos tem maior frequência em famílias de baixa renda.
