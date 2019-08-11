@@ -5,6 +5,7 @@ Para auxiliar a escolha sugere-se que o grupo consulte https://censo2010.ibge.go
 #####################################################################################################################################
 [Arquivo 1]: dados de domícilios das áreas de ponderação do estado de São Paulo.
 [Link]: https://www.dropbox.com/s/1dcytklu3agu91f/censo_sp_dom.zip?dl=0
+[Codigo dos municios]: http://www.asstecnologia.com.br/blog/?p=1496
 Será realizada a análise nos municípios de Diadema, Guarujá, Mauá, Praia Grande, Santo André, Santos, São Bernardo do Campo, São Vicente (Estado de São Paulo).
 #####################################################################################################################################
 
