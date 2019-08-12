@@ -12,6 +12,29 @@ Será realizada a análise nos municípios de Diadema (13801), Guarujá (18701),
 [Hipotese 1]: A falta de água canalizada nos domicílios tem relação direta com a baixa qualidade externa das casas.           
 [Campo 1]: V0202 (Valores: 1-Alvenaria com revestimento. / 2-Alvenaria sem revestimento. / 3-Madeira apropriada para construção. / 4-Taipa revestida. / 5-Taipa não revestida. / 6-Madeira aproveitada. / 7.Palha. / 8.Outro material. / 9.Sem parede. / Branco-Para domicilio particular improvisado.)
 [Campo 2]: V0209 (Valores: 1-Sim, em pelo menos um comodo. / 2-Sim, so na propriedade ou terreno. / 3-Não. / Branco-Para domicilio particular improvisado).
+[CÓDIGO PYTHON]:
+import matplotlib.pyplot as plt
+import pandas as pd
+
+#Abre o arquivo CSV
+cenco2010sp = pd.read_csv("censo2010_SPDom.csv", sep=",")
+
+#Colunas analisadas V0002-Municipio, V0202-Tipo de Alvenaria, V0209-Agua canalizada
+colunas=["V0002","V0202","V0209"]
+
+#Seleciona apenas os municiíos da hipotese e que não possuam água canalizada
+condicao = (((cenco2010sp[colunas]["V0002"] == 13801) | (cenco2010sp[colunas]["V0002"] == 18701) | (cenco2010sp[colunas]["V0002"] == 29401) | (cenco2010sp[colunas]["V0002"] == 41000) | (cenco2010sp[colunas]["V0002"] == 47809) | (cenco2010sp[colunas]["V0002"] == 48500) | (cenco2010sp[colunas]["V0002"] == 51009) | (cenco2010sp[colunas]["V0002"] == 48708)) & (cenco2010sp[colunas]["V0209"] == 3))
+cenco2010sp[condicao][colunas]
+
+#Conta as ocorrências por [municipio e código de alvenaria] substituindo o codigo pelo nome respectivo
+resultado=cenco2010sp[condicao][colunas].replace(1.0,'Alvenaria com revestimento').replace(2.0,'Alvenaria sem revestimento').replace(3.0,'Madeira apropriada para construção').replace(4.0,'Taipa revestida').replace(5.0,'Taipa não revestida').replace(6.0,'Madeira aproveitada').replace(7.0,'Palha').replace(8.0,'Outro Material').replace(9.0,'Sem parede').replace(13801,'Diadema').replace(18701,'Guarujá').replace(29401,'Mauá').replace(41000,'Praia Grande').replace(47809,'Santo André').replace(48500,'Santos').replace(48708,'São Bernardo').replace(51009,'São Vicente').groupby(['V0002','V0202']).count()['V0209']
+
+#Grafico de barras mostrando a quantidade de casas sem água canalizada separadas por cidade e classificada por tipo de revestimento
+resultado.unstack().plot(kind='bar',stacked=True,  color=['blue','yellow','green','gray','orange'], grid=True, figsize=(20,10), rot=45, title='Quantidade de casas sem água canalizada', label='Tipo de Revestimento')
+
+
+
+
 
 [Hipotese 2]: Domicílios que possuem automóvel particular apresentam maiores renda per capita.
 [Campo 1]: V5080 (Valores: quociente do total de rendimentos pelo total de moradores).
