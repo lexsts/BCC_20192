@@ -57,7 +57,7 @@ cenco2010sp[condicao][colunas]
 #Carrega o resultado
 resultado=cenco2010sp[condicao][colunas]
 
-#Grafico de barras mostrando a quantidade de casas sem água canalizada separadas por cidade e classificada por tipo de revestimento
+#Grafico scatter mostrando a ocorrência de maior rendimento domiciliar em casas em que a densidade de morador por comodo é menor do que 1
 resultado.plot(kind='scatter', x='V6203',y='V6529',color='green',grid=True, figsize=(20,10), title='Redimento mensal domiciliar X Densidade de morador por comodo')
 
 
