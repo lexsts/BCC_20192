@@ -37,8 +37,35 @@ resultado.unstack().plot(kind='bar',stacked=True,  color=['blue','yellow','green
 
 
 [Hipotese 2]: Domicílios que possuem automóvel particular apresentam maiores renda per capita.
-[Campo 1]: V5080 (Valores: quociente do total de rendimentos pelo total de moradores).
-[Campo 2]: V0222 (Valores: 1-Sim. / 2-Não.).
+[NOVA - Hipotese 2]: Domicílios com densidade de morador por comodo menor do que 1 apresentam maior rendimento mensal.
+[Campo 1]: V6203 (Valores: Densidade morador/comodo).
+[Campo 2]: V6529 (Valores: Rendimento mensal domiciliar).
+[CÓDIGO PYTHON]:
+import matplotlib.pyplot as plt
+import pandas as pd
+
+#Abre o arquivo CSV
+cenco2010sp = pd.read_csv("censo2010_SPDom.csv", sep=",")
+
+#Colunas analisadas V0002-Municipio, V6203-Densidade morador/comodo, V6529-Rendimento mensal domiciliar
+colunas=["V0002","V6203","V6529"]
+
+#Seleciona apenas os municiíos da hipotese
+condicao = (((cenco2010sp[colunas]["V0002"] == 13801) | (cenco2010sp[colunas]["V0002"] == 18701) | (cenco2010sp[colunas]["V0002"] == 29401) | (cenco2010sp[colunas]["V0002"] == 41000) | (cenco2010sp[colunas]["V0002"] == 47809) | (cenco2010sp[colunas]["V0002"] == 48500) | (cenco2010sp[colunas]["V0002"] == 51009) | (cenco2010sp[colunas]["V0002"] == 48708)))
+cenco2010sp[condicao][colunas]
+
+#Carrega o resultado
+resultado=cenco2010sp[condicao][colunas]
+
+#Grafico de barras mostrando a quantidade de casas sem água canalizada separadas por cidade e classificada por tipo de revestimento
+resultado.plot(kind='scatter', x='V6203',y='V6529',color='green',grid=True, figsize=(20,10), title='Redimento mensal domiciliar X Densidade de morador por comodo')
+
+
+
+
+
+
+
 
 [Hipotese 3]: Domicílios com 8 ou mais cômodos são um privilégio de quem possui maior renda per capita.
 [Campo 1]: V5080 (Valores: quociente do total de rendimentos pelo total de moradores).
