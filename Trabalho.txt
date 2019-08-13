@@ -60,7 +60,6 @@ conSantos = (cenco2010sp[colunas]["V0002"] == 48500)
 conSaoVicente = (cenco2010sp[colunas]["V0002"] == 51009)
 conSaoBernardo = (cenco2010sp[colunas]["V0002"] == 48708)
 
-
 #Carrega os resultados em cada municipio
 rstDiadema=cenco2010sp[conDiadema][colunas]
 rstGuaruja=cenco2010sp[conGuaruja][colunas]
@@ -91,8 +90,55 @@ plt.legend(('Diadema','Guaruja','Maua','PraiaGrande','SantoAndre','Santos','SaoV
 
 
 [Hipotese 3]: Domicílios com 8 ou mais cômodos são um privilégio de quem possui maior renda per capita.
-[Campo 1]: V5080 (Valores: quociente do total de rendimentos pelo total de moradores).
+[Campo 1]: V6529 (Valores: Rendimento mensal domiciliar).
 [Campo 2]: V0203 (Valores: número de cômodos).
+[CÓDIGO PYTHON]:
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+#Abre o arquivo CSV
+cenco2010sp = pd.read_csv("censo2010_SPDom.csv", sep=",")
+
+#Colunas analisadas V0002-Municipio, V0203-Numero de comodos, V6529-Rendimento mensal domiciliar
+colunas=["V0002","V0203","V6529"]
+
+#Seleciona apenas os municiíos da hipotese
+conDiadema = (cenco2010sp[colunas]["V0002"] == 13801)
+conGuaruja = (cenco2010sp[colunas]["V0002"] == 18701)
+conMaua = (cenco2010sp[colunas]["V0002"] == 29401)
+conPraiaGrande = (cenco2010sp[colunas]["V0002"] == 41000)
+conSantoAndre = (cenco2010sp[colunas]["V0002"] == 47809)
+conSantos = (cenco2010sp[colunas]["V0002"] == 48500)
+conSaoVicente = (cenco2010sp[colunas]["V0002"] == 51009)
+conSaoBernardo = (cenco2010sp[colunas]["V0002"] == 48708)
+
+#Carrega os resultados em cada municipio
+rstDiadema=cenco2010sp[conDiadema][colunas]
+rstGuaruja=cenco2010sp[conGuaruja][colunas]
+rstMaua=cenco2010sp[conMaua][colunas]
+rstPraiaGrande=cenco2010sp[conPraiaGrande][colunas]
+rstSantoAndre=cenco2010sp[conSantoAndre][colunas]
+rstSantos=cenco2010sp[conSantos][colunas]
+rstSaoVicente=cenco2010sp[conSaoVicente][colunas]
+rstSaoBernardo=cenco2010sp[conSaoBernardo][colunas]
+
+#Grafico scatter mostrando a ocorrência de maior rendimento domiciliar nas casas que contem entre 4 e 15 comodos
+plt.scatter(rstDiadema["V0203"],rstDiadema["V6529"],color='green',alpha=0.3, cmap='viridis',s=100)
+plt.scatter(rstGuaruja["V0203"],rstGuaruja["V6529"],color='orange',alpha=0.3, cmap='viridis',s=100)
+plt.scatter(rstMaua["V0203"],rstMaua["V6529"],color='aqua',alpha=0.3, cmap='viridis',s=100)
+plt.scatter(rstPraiaGrande["V0203"],rstPraiaGrande["V6529"],color='gray',alpha=0.3, cmap='viridis',s=100)
+plt.scatter(rstSantoAndre["V0203"],rstSantoAndre["V6529"],color='pink',alpha=0.3, cmap='viridis',s=100)
+plt.scatter(rstSantos["V0203"],rstSantos["V6529"],color='purple',alpha=0.3, cmap='viridis',s=100)
+plt.scatter(rstSaoVicente["V0203"],rstSaoVicente["V6529"],color='yellow',alpha=0.3, cmap='viridis',s=100)
+plt.scatter(rstSaoBernardo["V0203"],rstSaoBernardo["V6529"],color='turquoise',alpha=0.3, cmap='viridis',s=100)
+plt.xlabel("Quantidade de comodos")
+plt.ylabel("Rendimento mensal domiciliar")
+plt.title("Rendimento X Comodos")
+plt.legend(('Diadema','Guaruja','Maua','PraiaGrande','SantoAndre','Santos','SaoVicente','SaoBernardo'))
+
+
+
 
 [Hipotese 4]: A presença de telefone fixo e celular ocorre com mais frequência nas casas com melhores acabamentos.
 [Campo 1]: V0202 (Valores: 1-Alvenaria com revestimento. / 2-Alvenaria sem revestimento. / 3-Madeira apropriada para construção. / 4-Taipa revestida. / 5-Taipa não revestida. / 6-Madeira aproveitada. / 7.Palha. / 8.Outro material. / 9.Sem parede. / Branco-Para domicilio particular improvisado.)
