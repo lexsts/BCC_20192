@@ -51,16 +51,39 @@ cenco2010sp = pd.read_csv("censo2010_SPDom.csv", sep=",")
 colunas=["V0002","V6203","V6529"]
 
 #Seleciona apenas os municiíos da hipotese
-condicao = (((cenco2010sp[colunas]["V0002"] == 13801) | (cenco2010sp[colunas]["V0002"] == 18701) | (cenco2010sp[colunas]["V0002"] == 29401) | (cenco2010sp[colunas]["V0002"] == 41000) | (cenco2010sp[colunas]["V0002"] == 47809) | (cenco2010sp[colunas]["V0002"] == 48500) | (cenco2010sp[colunas]["V0002"] == 51009) | (cenco2010sp[colunas]["V0002"] == 48708)))
-cenco2010sp[condicao][colunas]
+conDiadema = (cenco2010sp[colunas]["V0002"] == 13801)
+conGuaruja = (cenco2010sp[colunas]["V0002"] == 18701)
+conMaua = (cenco2010sp[colunas]["V0002"] == 29401)
+conPraiaGrande = (cenco2010sp[colunas]["V0002"] == 41000)
+conSantoAndre = (cenco2010sp[colunas]["V0002"] == 47809)
+conSantos = (cenco2010sp[colunas]["V0002"] == 48500)
+conSaoVicente = (cenco2010sp[colunas]["V0002"] == 51009)
+conSaoBernardo = (cenco2010sp[colunas]["V0002"] == 48708)
 
-#Carrega o resultado
-resultado=cenco2010sp[condicao][colunas]
 
-#Grafico scatter mostrando a ocorrência de maior rendimento domiciliar em casas em que a densidade de morador por comodo é menor do que 1
-resultado.plot(kind='scatter', x='V6203',y='V6529',color='green',grid=True, figsize=(20,10), title='Redimento mensal domiciliar X Densidade de morador por comodo')
+#Carrega os resultados em cada municipio
+rstDiadema=cenco2010sp[conDiadema][colunas]
+rstGuaruja=cenco2010sp[conGuaruja][colunas]
+rstMaua=cenco2010sp[conMaua][colunas]
+rstPraiaGrande=cenco2010sp[conPraiaGrande][colunas]
+rstSantoAndre=cenco2010sp[conSantoAndre][colunas]
+rstSantos=cenco2010sp[conSantos][colunas]
+rstSaoVicente=cenco2010sp[conSaoVicente][colunas]
+rstSaoBernardo=cenco2010sp[conSaoBernardo][colunas]
 
-
+#Grafico scatter mostrando a ocorrência de maior rendimento domiciliar nas casas em que a densidade de morador por comodo é menor do que 1
+plt.scatter(rstDiadema["V6203"],rstDiadema["V6529"],color='green',alpha=0.3, cmap='viridis',s=100)
+plt.scatter(rstGuaruja["V6203"],rstGuaruja["V6529"],color='orange',alpha=0.3, cmap='viridis',s=100)
+plt.scatter(rstMaua["V6203"],rstMaua["V6529"],color='aqua',alpha=0.3, cmap='viridis',s=100)
+plt.scatter(rstPraiaGrande["V6203"],rstPraiaGrande["V6529"],color='gray',alpha=0.3, cmap='viridis',s=100)
+plt.scatter(rstSantoAndre["V6203"],rstSantoAndre["V6529"],color='pink',alpha=0.3, cmap='viridis',s=100)
+plt.scatter(rstSantos["V6203"],rstSantos["V6529"],color='purple',alpha=0.3, cmap='viridis',s=100)
+plt.scatter(rstSaoVicente["V6203"],rstSaoVicente["V6529"],color='yellow',alpha=0.3, cmap='viridis',s=100)
+plt.scatter(rstSaoBernardo["V6203"],rstSaoBernardo["V6529"],color='turquoise',alpha=0.3, cmap='viridis',s=100)
+plt.xlabel("Densidade de morador por comodo")
+plt.ylabel("Rendimento mensal domiciliar")
+plt.title("Rendimento X Densidade")
+plt.legend(('Diadema','Guaruja','Maua','PraiaGrande','SantoAndre','Santos','SaoVicente','SaoBernardo'))
 
 
 
