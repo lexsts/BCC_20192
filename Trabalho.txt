@@ -170,12 +170,30 @@ resultado.unstack().plot(kind='bar',stacked=True,  color=['blue','yellow','green
 
 
 
-
-
-
 [Hipotese 5]: É mais fácil encontrarmos computadores com acesso à internet nas casas com mais dormitórios.
 [Campo 1]: V0204 (Valores: número de dormitórios).
 [Campo 2]: V0220 (Valores: 1-Sim. / 2-Não).
+[CÓDIGO PYTHON]:
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+#Abre o arquivo CSV
+cenco2010sp = pd.read_csv("censo2010_SPDom.csv", sep=",")
+
+#Colunas analisadas V0002-Municipio, V0204-Numero de dormitórios, V0220-Computador com acesso a internet
+colunas=["V0002","V0204","V0220"]
+
+#Seleciona apenas os municiíos da hipotese e que não possuam água canalizada
+condicao = (((cenco2010sp[colunas]["V0002"] == 13801) | (cenco2010sp[colunas]["V0002"] == 18701) | (cenco2010sp[colunas]["V0002"] == 29401) | (cenco2010sp[colunas]["V0002"] == 41000) | (cenco2010sp[colunas]["V0002"] == 47809) | (cenco2010sp[colunas]["V0002"] == 48500) | (cenco2010sp[colunas]["V0002"] == 51009) | (cenco2010sp[colunas]["V0002"] == 48708)) & (cenco2010sp[colunas]["V0220"]==1))
+
+#Conta as ocorrências por quantidade de dormitórios substituindo o codigo pelo nome respectivo do município
+resultado=cenco2010sp[condicao][colunas].replace(13801,'Diadema').replace(18701,'Guarujá').replace(29401,'Mauá').replace(41000,'Praia Grande').replace(47809,'Santo André').replace(48500,'Santos').replace(48708,'São Bernardo').replace(51009,'São Vicente').groupby(['V0002','V0204']).count()['V0220']
+
+#Gráfico de barras mostrando a existencia de acesso à internet em casas com diferentes quantidades de dormitórios
+resultado.unstack().plot(kind='bar',stacked=True,  color=['blue','yellow','green','gray','orange','purple','black','cyan','red'], grid=True, figsize=(20,10), rot=45, title='Quantidade de casas sem água canalizada', label='Tipo de Revestimento')
+
+
 
 
 
