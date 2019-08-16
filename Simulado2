@@ -1,0 +1,70 @@
+# -*- coding: utf-8 -*-
+"""
+Spyder Editor
+
+Este é um arquivo de script temporário.
+"""
+from math import sqrt
+
+def questao1(x,y,z):
+
+    if ((x+y>z)&(x+z>y)&(y+z>x)):
+        if (((x**2+y**2)==z**2) | ((x**2+z**2)==y**2) | ((z**2+y**2)==x**2)):
+            if (((x==y)&(x!=z))|((x==z)&(x!=y))):
+                resultado="Triangulo retangulo isosceles"
+            if (((x!=y)&(x!=z))&((y!=z)&(x!=y))):
+                resultado="Triangulo retangulo escaleno"
+            if ((x==y)&(x==z)):
+                resultado="Triangulo retangulo equilatero"
+        else:
+            if (((x==y)&(x!=z))|((x==z)&(x!=y))):
+                resultado="Triangulo isosceles"
+            if (((x!=y)&(x!=z))&((y!=z)&(x!=y))):
+                resultado="Triangulo escaleno"
+            if ((x==y)&(x==z)):
+                resultado="Triangulo equilatero"
+    else:
+        resultado="Não é triangulo"
+    
+    return resultado
+
+
+
+def questao2(x,y):
+    resultado=x
+    if((x!=0)|(y>=0)):        
+        for i in range(1, y):
+            resultado=resultado*x
+    else:
+        resultado="Valores não possíveis no calculo."    
+    return resultado
+
+
+def questao3(x):    
+    valor=1
+    if(x>=1):        
+        for i in range(1, x-1):
+            if ((x%i)==0):                
+                valor=valor*i
+        if (valor==x):
+            resultado="Sim"
+        else:
+            resultado="Não"
+    else:
+        resultado="Valor não possível no cálculo."    
+    return resultado
+
+
+def questao5():    
+   valor = int(input("Digite a quantidade de números pretendidos no cálculo: "))
+   for i in range(0, valor):
+       if (i==0):
+           num=int(input("Digite um numero e aperte enter: "))
+       else:
+           num2=int(input("Digite um numero e aperte enter: "))
+           if (num>num2):
+               num=num2
+               resultado="Sim"
+           else:
+               resultado="Não"
+   return resultado
