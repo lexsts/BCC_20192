@@ -204,6 +204,7 @@ resultado.unstack().plot(kind='barh',stacked=True,  color=['blue','yellow','gree
 Arquivo 2: dados de pessoas das áreas de ponderação do estado do Acre
 Link: https://www.dropbox.com/s/mgimenvj3p0bbtx/censo_ac_pes.zip?dl=0
 Será realizada a análise no município de Rio Branco (Estado do Acre).
+[NOVO] Será realizada a análise nos municípios de Rio Branco, Acrelandia, Capixaba, PortoAcre, Xapuri, Sena Madureira, Feijo, Tarauaca (Estado do Acre).
 #####################################################################################################################################
 
 Hipotese 1: A ocorrência de natimortos tem maior frequência em famílias de baixa renda.
@@ -212,6 +213,80 @@ Hipotese 1: A ocorrência de natimortos tem maior frequência em famílias de ba
 Hipotese 2: Pessoas sem ensino superior casam-se mais do que pessoas com ensino superior.
 [Campo 1]: V0633 (Valores: 01 – Creche, Pré-escolar (Maternal e Jardim de Infância), Classe de alfabetização - CA. / 02 - Alfabetização de Jovens e Adultos. / 03 – Antigo Primário (Elementar). / 04 – Antigo Ginásio - Médio 1 Ciclo. / 05 – Regular do Ensino Fundamental ou 1 Grau - da 1 série/4ano. / 06 – Regular do Ensino Fundamental ou 1 Grau - da 4 série/5ano. / 07 - Regular do Ensino Fundamental ou 1 Grau - da 5 a 8 série do 6 ao 9 ano. / 08 - Supletivo do Ensino Fundamental ou do 1 Grau. / 09 - Antigo Científico, Clássico, etc. (Médio 2 ciclo). / 10 - Regular ou Supletivo do Ensino Médio ou do 2 Grau. / 11 - Superior de Graduação. / 12 - Especialização de Nível Superior - mínimo de 360 horas. / 13 – Mestrado. / 14 - Doutorado. / Branco: para os que frequentavam escola ou creche ou aqueles que nunca frequentaram).
 [Campo 2]: V0640 (Valores: 1 – Casado. / 2 – Desquitado(a) ou separado(a) judicialmente. / 3 – Divorciado. / 4 – Viúvo. / 5 – Solteiro. / Branco: para os menores de 10 anos de idade).
+[CÓDIGO PYTHON]:
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+#Abre o arquivo CSV
+cenco2010ac = pd.read_csv("/home/alex/Documents/Bases_Computacionais/censo_ac_pes/censo2010_ACpes.csv", sep=",")
+
+#Colunas analisadas V0002-Municipio, V0633-Formação escolar, V0640-Estado civil
+colunas=["V0002","V0633","V0640"]
+
+#Seleciona apenas os municiíos da hipotese
+conRioBrancoB = ((cenco2010ac[colunas]["V0002"] == 401) & (cenco2010ac[colunas]["V0640"] == 1) & (cenco2010ac[colunas]["V0633"] <= 10))
+conRioBrancoS = ((cenco2010ac[colunas]["V0002"] == 401) & (cenco2010ac[colunas]["V0640"] == 1) & (cenco2010ac[colunas]["V0633"] > 10))
+conAcrelandiaB = ((cenco2010ac[colunas]["V0002"] == 13) & (cenco2010ac[colunas]["V0640"] == 1) & (cenco2010ac[colunas]["V0633"] <= 10))
+conAcrelandiaS = ((cenco2010ac[colunas]["V0002"] == 13) & (cenco2010ac[colunas]["V0640"] == 1) & (cenco2010ac[colunas]["V0633"] > 10)) 
+conCapixabaB = ((cenco2010ac[colunas]["V0002"] == 179) & (cenco2010ac[colunas]["V0640"] == 1) & (cenco2010ac[colunas]["V0633"] <= 10)) 
+conCapixabaS = ((cenco2010ac[colunas]["V0002"] == 179) & (cenco2010ac[colunas]["V0640"] == 1) & (cenco2010ac[colunas]["V0633"] > 10)) 
+conPortoAcreB = ((cenco2010ac[colunas]["V0002"] == 807) & (cenco2010ac[colunas]["V0640"] == 1) & (cenco2010ac[colunas]["V0633"] <= 10)) 
+conPortoAcreS = ((cenco2010ac[colunas]["V0002"] == 807) & (cenco2010ac[colunas]["V0640"] == 1) & (cenco2010ac[colunas]["V0633"] > 10)) 
+conXapuriB = ((cenco2010ac[colunas]["V0002"] == 708) & (cenco2010ac[colunas]["V0640"] == 1) & (cenco2010ac[colunas]["V0633"] <= 10)) 
+conXapuriS = ((cenco2010ac[colunas]["V0002"] == 708) & (cenco2010ac[colunas]["V0640"] == 1) & (cenco2010ac[colunas]["V0633"] > 10)) 
+conSenaMadureiraB = ((cenco2010ac[colunas]["V0002"] == 500) & (cenco2010ac[colunas]["V0640"] == 1) & (cenco2010ac[colunas]["V0633"] <= 10)) 
+conSenaMadureiraS = ((cenco2010ac[colunas]["V0002"] == 500) & (cenco2010ac[colunas]["V0640"] == 1) & (cenco2010ac[colunas]["V0633"] > 10)) 
+conFeijoB = ((cenco2010ac[colunas]["V0002"] == 302) & (cenco2010ac[colunas]["V0640"] == 1) & (cenco2010ac[colunas]["V0633"] <= 10)) 
+conFeijoS = ((cenco2010ac[colunas]["V0002"] == 302) & (cenco2010ac[colunas]["V0640"] == 1) & (cenco2010ac[colunas]["V0633"] > 10)) 
+conTarauacaB = ((cenco2010ac[colunas]["V0002"] == 609) & (cenco2010ac[colunas]["V0640"] == 1) & (cenco2010ac[colunas]["V0633"] <= 10)) 
+conTarauacaS = ((cenco2010ac[colunas]["V0002"] == 609) & (cenco2010ac[colunas]["V0640"] == 1) & (cenco2010ac[colunas]["V0633"] > 10)) 
+
+#Carrega os resultados em cada municipio
+rstRioBrancoB=cenco2010ac[conRioBrancoB][colunas].count()['V0640']
+rstRioBrancoS=cenco2010ac[conRioBrancoS][colunas].count()['V0640']
+rstAcrelandiaB=cenco2010ac[conAcrelandiaB][colunas].count()['V0640']
+rstAcrelandiaS=cenco2010ac[conAcrelandiaS][colunas].count()['V0640']
+rstCapixabaB=cenco2010ac[conCapixabaB][colunas].count()['V0640']
+rstCapixabaS=cenco2010ac[conCapixabaS][colunas].count()['V0640']
+rstPortoAcreB=cenco2010ac[conPortoAcreB][colunas].count()['V0640']
+rstPortoAcreS=cenco2010ac[conPortoAcreS][colunas].count()['V0640']
+rstXapuriB=cenco2010ac[conXapuriB][colunas].count()['V0640']
+rstXapuriS=cenco2010ac[conXapuriS][colunas].count()['V0640']
+rstSenaMadureiraB=cenco2010ac[conSenaMadureiraB][colunas].count()['V0640']
+rstSenaMadureiraS=cenco2010ac[conSenaMadureiraS][colunas].count()['V0640']
+rstFeijoB=cenco2010ac[conFeijoB][colunas].count()['V0640']
+rstFeijoS=cenco2010ac[conFeijoS][colunas].count()['V0640']
+rstTarauacaB=cenco2010ac[conTarauacaB][colunas].count()['V0640']
+rstTarauacaS=cenco2010ac[conTarauacaS][colunas].count()['V0640']
+
+#Grafico de barras mostrando a quantidade de pessoas casadas (classificadas por nível de formação escolar)
+plt.bar(1, rstRioBrancoB, 2, label='Sem ensino superior',color='green')
+plt.bar(3, rstRioBrancoS, 2,label='Com ensino superior',color='blue')
+plt.bar(6, rstAcrelandiaB, 2,color='green')
+plt.bar(8, rstAcrelandiaS, 2,color='blue')
+plt.bar(11, rstCapixabaB, 2,color='green')
+plt.bar(13, rstCapixabaS, 2,color='blue')
+plt.bar(16, rstPortoAcreB, 2,color='green')
+plt.bar(18, rstPortoAcreS, 2,color='blue')
+plt.bar(21, rstXapuriB, 2,color='green')
+plt.bar(23, rstXapuriS, 2,color='blue')
+plt.bar(26, rstSenaMadureiraB, 2,color='green')
+plt.bar(28, rstSenaMadureiraS, 2,color='blue')
+plt.bar(31, rstFeijoB, 2, color='green')
+plt.bar(33, rstFeijoS, 2, color='blue')
+plt.bar(36, rstTarauacaB, 2,color='green')
+plt.bar(38, rstTarauacaS, 2,color='blue')
+
+plt.ylabel('Total de Pessoas')
+plt.title('Pessoas casadas X Nível de formação escolar')
+
+plt.xticks((3,8,13,18,23,28,33,38), ('Rio Branco', 'Acrelandia', 'Capixaba', 'Porto Acre', 'Xapuri', 'Sena Madureira', 'Feijo', 'Tarauaca'), rotation=45)
+plt.legend(loc='best')
+plt.show()
+
+
+
 
 Hipotese 3: A grande maioria de diretores e gerentes possuem curso de especialização superior.
 [Campo 1]: V0633 (Valores: 01 – Creche, Pré-escolar (Maternal e Jardim de Infância), Classe de alfabetização - CA. / 02 - Alfabetização de Jovens e Adultos. / 03 – Antigo Primário (Elementar). / 04 – Antigo Ginásio - Médio 1 Ciclo. / 05 – Regular do Ensino Fundamental ou 1 Grau - da 1 série/4ano. / 06 – Regular do Ensino Fundamental ou 1 Grau - da 4 série/5ano. / 07 - Regular do Ensino Fundamental ou 1 Grau - da 5 a 8 série do 6 ao 9 ano. / 08 - Supletivo do Ensino Fundamental ou do 1 Grau. / 09 - Antigo Científico, Clássico, etc. (Médio 2 ciclo). / 10 - Regular ou Supletivo do Ensino Médio ou do 2 Grau. / 11 - Superior de Graduação. / 12 - Especialização de Nível Superior - mínimo de 360 horas. / 13 – Mestrado. / 14 - Doutorado. / Branco: para os que frequentavam escola ou creche ou aqueles que nunca frequentaram).
