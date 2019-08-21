@@ -190,8 +190,11 @@ condicao = (((cenco2010sp[colunas]["V0002"] == 13801) | (cenco2010sp[colunas]["V
 #Conta as ocorrências por quantidade de dormitórios substituindo o codigo pelo nome respectivo do município
 resultado=cenco2010sp[condicao][colunas].replace(13801,'Diadema').replace(18701,'Guarujá').replace(29401,'Mauá').replace(41000,'Praia Grande').replace(47809,'Santo André').replace(48500,'Santos').replace(48708,'São Bernardo').replace(51009,'São Vicente').groupby(['V0002','V0204']).count()['V0220']
 
-#Gráfico de barras mostrando a existencia de acesso à internet em casas com diferentes quantidades de dormitórios
-resultado.unstack().plot(kind='bar',stacked=True,  color=['blue','yellow','green','gray','orange','purple','black','cyan','red'], grid=True, figsize=(20,10), rot=45, title='Quantidade de casas sem água canalizada', label='Tipo de Revestimento')
+#Gráfico de barras mostrando a existencia de acesso à internet em maior quantidade nas casas com 2 dormitórios
+resultado.unstack().plot(kind='barh',stacked=True,  color=['blue','yellow','green','gray','orange','purple','black','cyan','red'], grid=True, figsize=(20,10), rot=45, title='Quantidade de dormitórios nas casas com internet', label='Tipo de Revestimento')
+
+
+
 
 
 
