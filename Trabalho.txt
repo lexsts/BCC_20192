@@ -341,6 +341,90 @@ plt.show()
 Hipotese 3: A grande maioria de diretores e gerentes possuem curso de especialização superior.
 [Campo 1]: V0633 (Valores: 01 – Creche, Pré-escolar (Maternal e Jardim de Infância), Classe de alfabetização - CA. / 02 - Alfabetização de Jovens e Adultos. / 03 – Antigo Primário (Elementar). / 04 – Antigo Ginásio - Médio 1 Ciclo. / 05 – Regular do Ensino Fundamental ou 1 Grau - da 1 série/4ano. / 06 – Regular do Ensino Fundamental ou 1 Grau - da 4 série/5ano. / 07 - Regular do Ensino Fundamental ou 1 Grau - da 5 a 8 série do 6 ao 9 ano. / 08 - Supletivo do Ensino Fundamental ou do 1 Grau. / 09 - Antigo Científico, Clássico, etc. (Médio 2 ciclo). / 10 - Regular ou Supletivo do Ensino Médio ou do 2 Grau. / 11 - Superior de Graduação. / 12 - Especialização de Nível Superior - mínimo de 360 horas. / 13 – Mestrado. / 14 - Doutorado. / Branco: para os que frequentavam escola ou creche ou aqueles que nunca frequentaram).
 [Campo 2]: (Valores: Pessoas de 10 anos ou mais de idade, ocupadas na semana de referência, na ocupação no trabalho principal - Diretores e gerentes)
+[CÓDIGO PYTHON]:
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+#Abre o arquivo CSV
+cenco2010ac = pd.read_csv("/home/alex/Documents/Bases_Computacionais/censo_ac_pes/censo2010_ACpes.csv", sep=",")
+
+#Colunas analisadas V0002-Municipio, V0633-Formação escolar, V6461-Ocupação
+colunas=["V0002","V0633","V6461"]
+
+#Seleciona apenas os municiíos da hipotese
+conRioBrancoE = ((cenco2010ac[colunas]["V0002"] == 401) & (cenco2010ac[colunas]["V0633"] == 12) & ((cenco2010ac[colunas]["V6461"] == 1) | (cenco2010ac[colunas]["V6461"] == 11) | (cenco2010ac[colunas]["V6461"] == 112) | (cenco2010ac[colunas]["V6461"] == 1120) | (cenco2010ac[colunas]["V6461"] == 1346) | (cenco2010ac[colunas]["V6461"] == 1349) | (cenco2010ac[colunas]["V6461"] == 14) | (cenco2010ac[colunas]["V6461"] == 141) | (cenco2010ac[colunas]["V6461"] == 1411) | (cenco2010ac[colunas]["V6461"] == 1412) | (cenco2010ac[colunas]["V6461"] == 142) | (cenco2010ac[colunas]["V6461"] == 1420) | (cenco2010ac[colunas]["V6461"] == 143) | (cenco2010ac[colunas]["V6461"] == 1431) | (cenco2010ac[colunas]["V6461"] == 1439) | (cenco2010ac[colunas]["V6461"] == 2654)))
+conRioBrancoS = ((cenco2010ac[colunas]["V0002"] == 401) & (cenco2010ac[colunas]["V0633"] != 12) & ((cenco2010ac[colunas]["V6461"] == 1) | (cenco2010ac[colunas]["V6461"] == 11) | (cenco2010ac[colunas]["V6461"] == 112) | (cenco2010ac[colunas]["V6461"] == 1120) | (cenco2010ac[colunas]["V6461"] == 1346) | (cenco2010ac[colunas]["V6461"] == 1349) | (cenco2010ac[colunas]["V6461"] == 14) | (cenco2010ac[colunas]["V6461"] == 141) | (cenco2010ac[colunas]["V6461"] == 1411) | (cenco2010ac[colunas]["V6461"] == 1412) | (cenco2010ac[colunas]["V6461"] == 142) | (cenco2010ac[colunas]["V6461"] == 1420) | (cenco2010ac[colunas]["V6461"] == 143) | (cenco2010ac[colunas]["V6461"] == 1431) | (cenco2010ac[colunas]["V6461"] == 1439) | (cenco2010ac[colunas]["V6461"] == 2654)))
+conAcrelandiaE = ((cenco2010ac[colunas]["V0002"] == 13) & (cenco2010ac[colunas]["V0633"] == 12) & ((cenco2010ac[colunas]["V6461"] == 1) | (cenco2010ac[colunas]["V6461"] == 11) | (cenco2010ac[colunas]["V6461"] == 112) | (cenco2010ac[colunas]["V6461"] == 1120) | (cenco2010ac[colunas]["V6461"] == 1346) | (cenco2010ac[colunas]["V6461"] == 1349) | (cenco2010ac[colunas]["V6461"] == 14) | (cenco2010ac[colunas]["V6461"] == 141) | (cenco2010ac[colunas]["V6461"] == 1411) | (cenco2010ac[colunas]["V6461"] == 1412) | (cenco2010ac[colunas]["V6461"] == 142) | (cenco2010ac[colunas]["V6461"] == 1420) | (cenco2010ac[colunas]["V6461"] == 143) | (cenco2010ac[colunas]["V6461"] == 1431) | (cenco2010ac[colunas]["V6461"] == 1439) | (cenco2010ac[colunas]["V6461"] == 2654)))
+conAcrelandiaS = ((cenco2010ac[colunas]["V0002"] == 13) & (cenco2010ac[colunas]["V0633"] != 12) & ((cenco2010ac[colunas]["V6461"] == 1) | (cenco2010ac[colunas]["V6461"] == 11) | (cenco2010ac[colunas]["V6461"] == 112) | (cenco2010ac[colunas]["V6461"] == 1120) | (cenco2010ac[colunas]["V6461"] == 1346) | (cenco2010ac[colunas]["V6461"] == 1349) | (cenco2010ac[colunas]["V6461"] == 14) | (cenco2010ac[colunas]["V6461"] == 141) | (cenco2010ac[colunas]["V6461"] == 1411) | (cenco2010ac[colunas]["V6461"] == 1412) | (cenco2010ac[colunas]["V6461"] == 142) | (cenco2010ac[colunas]["V6461"] == 1420) | (cenco2010ac[colunas]["V6461"] == 143) | (cenco2010ac[colunas]["V6461"] == 1431) | (cenco2010ac[colunas]["V6461"] == 1439) | (cenco2010ac[colunas]["V6461"] == 2654)))
+conCapixabaE = ((cenco2010ac[colunas]["V0002"] == 179) & (cenco2010ac[colunas]["V0633"] == 12) & ((cenco2010ac[colunas]["V6461"] == 1) | (cenco2010ac[colunas]["V6461"] == 11) | (cenco2010ac[colunas]["V6461"] == 112) | (cenco2010ac[colunas]["V6461"] == 1120) | (cenco2010ac[colunas]["V6461"] == 1346) | (cenco2010ac[colunas]["V6461"] == 1349) | (cenco2010ac[colunas]["V6461"] == 14) | (cenco2010ac[colunas]["V6461"] == 141) | (cenco2010ac[colunas]["V6461"] == 1411) | (cenco2010ac[colunas]["V6461"] == 1412) | (cenco2010ac[colunas]["V6461"] == 142) | (cenco2010ac[colunas]["V6461"] == 1420) | (cenco2010ac[colunas]["V6461"] == 143) | (cenco2010ac[colunas]["V6461"] == 1431) | (cenco2010ac[colunas]["V6461"] == 1439) | (cenco2010ac[colunas]["V6461"] == 2654)))
+conCapixabaS = ((cenco2010ac[colunas]["V0002"] == 179) & (cenco2010ac[colunas]["V0633"] != 12) & ((cenco2010ac[colunas]["V6461"] == 1) | (cenco2010ac[colunas]["V6461"] == 11) | (cenco2010ac[colunas]["V6461"] == 112) | (cenco2010ac[colunas]["V6461"] == 1120) | (cenco2010ac[colunas]["V6461"] == 1346) | (cenco2010ac[colunas]["V6461"] == 1349) | (cenco2010ac[colunas]["V6461"] == 14) | (cenco2010ac[colunas]["V6461"] == 141) | (cenco2010ac[colunas]["V6461"] == 1411) | (cenco2010ac[colunas]["V6461"] == 1412) | (cenco2010ac[colunas]["V6461"] == 142) | (cenco2010ac[colunas]["V6461"] == 1420) | (cenco2010ac[colunas]["V6461"] == 143) | (cenco2010ac[colunas]["V6461"] == 1431) | (cenco2010ac[colunas]["V6461"] == 1439) | (cenco2010ac[colunas]["V6461"] == 2654)))
+conPortoAcreE = ((cenco2010ac[colunas]["V0002"] == 807) & (cenco2010ac[colunas]["V0633"] == 12) & ((cenco2010ac[colunas]["V6461"] == 1) | (cenco2010ac[colunas]["V6461"] == 11) | (cenco2010ac[colunas]["V6461"] == 112) | (cenco2010ac[colunas]["V6461"] == 1120) | (cenco2010ac[colunas]["V6461"] == 1346) | (cenco2010ac[colunas]["V6461"] == 1349) | (cenco2010ac[colunas]["V6461"] == 14) | (cenco2010ac[colunas]["V6461"] == 141) | (cenco2010ac[colunas]["V6461"] == 1411) | (cenco2010ac[colunas]["V6461"] == 1412) | (cenco2010ac[colunas]["V6461"] == 142) | (cenco2010ac[colunas]["V6461"] == 1420) | (cenco2010ac[colunas]["V6461"] == 143) | (cenco2010ac[colunas]["V6461"] == 1431) | (cenco2010ac[colunas]["V6461"] == 1439) | (cenco2010ac[colunas]["V6461"] == 2654)))
+conPortoAcreS = ((cenco2010ac[colunas]["V0002"] == 807) & (cenco2010ac[colunas]["V0633"] != 12) & ((cenco2010ac[colunas]["V6461"] == 1) | (cenco2010ac[colunas]["V6461"] == 11) | (cenco2010ac[colunas]["V6461"] == 112) | (cenco2010ac[colunas]["V6461"] == 1120) | (cenco2010ac[colunas]["V6461"] == 1346) | (cenco2010ac[colunas]["V6461"] == 1349) | (cenco2010ac[colunas]["V6461"] == 14) | (cenco2010ac[colunas]["V6461"] == 141) | (cenco2010ac[colunas]["V6461"] == 1411) | (cenco2010ac[colunas]["V6461"] == 1412) | (cenco2010ac[colunas]["V6461"] == 142) | (cenco2010ac[colunas]["V6461"] == 1420) | (cenco2010ac[colunas]["V6461"] == 143) | (cenco2010ac[colunas]["V6461"] == 1431) | (cenco2010ac[colunas]["V6461"] == 1439) | (cenco2010ac[colunas]["V6461"] == 2654)))
+conXapuriE = ((cenco2010ac[colunas]["V0002"] == 708) & (cenco2010ac[colunas]["V0633"] == 12) & ((cenco2010ac[colunas]["V6461"] == 1) | (cenco2010ac[colunas]["V6461"] == 11) | (cenco2010ac[colunas]["V6461"] == 112) | (cenco2010ac[colunas]["V6461"] == 1120) | (cenco2010ac[colunas]["V6461"] == 1346) | (cenco2010ac[colunas]["V6461"] == 1349) | (cenco2010ac[colunas]["V6461"] == 14) | (cenco2010ac[colunas]["V6461"] == 141) | (cenco2010ac[colunas]["V6461"] == 1411) | (cenco2010ac[colunas]["V6461"] == 1412) | (cenco2010ac[colunas]["V6461"] == 142) | (cenco2010ac[colunas]["V6461"] == 1420) | (cenco2010ac[colunas]["V6461"] == 143) | (cenco2010ac[colunas]["V6461"] == 1431) | (cenco2010ac[colunas]["V6461"] == 1439) | (cenco2010ac[colunas]["V6461"] == 2654)))
+conXapuriS = ((cenco2010ac[colunas]["V0002"] == 708) & (cenco2010ac[colunas]["V0633"] != 12) & ((cenco2010ac[colunas]["V6461"] == 1) | (cenco2010ac[colunas]["V6461"] == 11) | (cenco2010ac[colunas]["V6461"] == 112) | (cenco2010ac[colunas]["V6461"] == 1120) | (cenco2010ac[colunas]["V6461"] == 1346) | (cenco2010ac[colunas]["V6461"] == 1349) | (cenco2010ac[colunas]["V6461"] == 14) | (cenco2010ac[colunas]["V6461"] == 141) | (cenco2010ac[colunas]["V6461"] == 1411) | (cenco2010ac[colunas]["V6461"] == 1412) | (cenco2010ac[colunas]["V6461"] == 142) | (cenco2010ac[colunas]["V6461"] == 1420) | (cenco2010ac[colunas]["V6461"] == 143) | (cenco2010ac[colunas]["V6461"] == 1431) | (cenco2010ac[colunas]["V6461"] == 1439) | (cenco2010ac[colunas]["V6461"] == 2654)))
+conSenaMadureiraE = ((cenco2010ac[colunas]["V0002"] == 500) & (cenco2010ac[colunas]["V0633"] == 12) & ((cenco2010ac[colunas]["V6461"] == 1) | (cenco2010ac[colunas]["V6461"] == 11) | (cenco2010ac[colunas]["V6461"] == 112) | (cenco2010ac[colunas]["V6461"] == 1120) | (cenco2010ac[colunas]["V6461"] == 1346) | (cenco2010ac[colunas]["V6461"] == 1349) | (cenco2010ac[colunas]["V6461"] == 14) | (cenco2010ac[colunas]["V6461"] == 141) | (cenco2010ac[colunas]["V6461"] == 1411) | (cenco2010ac[colunas]["V6461"] == 1412) | (cenco2010ac[colunas]["V6461"] == 142) | (cenco2010ac[colunas]["V6461"] == 1420) | (cenco2010ac[colunas]["V6461"] == 143) | (cenco2010ac[colunas]["V6461"] == 1431) | (cenco2010ac[colunas]["V6461"] == 1439) | (cenco2010ac[colunas]["V6461"] == 2654)))
+conSenaMadureiraS = ((cenco2010ac[colunas]["V0002"] == 500) & (cenco2010ac[colunas]["V0633"] != 12) & ((cenco2010ac[colunas]["V6461"] == 1) | (cenco2010ac[colunas]["V6461"] == 11) | (cenco2010ac[colunas]["V6461"] == 112) | (cenco2010ac[colunas]["V6461"] == 1120) | (cenco2010ac[colunas]["V6461"] == 1346) | (cenco2010ac[colunas]["V6461"] == 1349) | (cenco2010ac[colunas]["V6461"] == 14) | (cenco2010ac[colunas]["V6461"] == 141) | (cenco2010ac[colunas]["V6461"] == 1411) | (cenco2010ac[colunas]["V6461"] == 1412) | (cenco2010ac[colunas]["V6461"] == 142) | (cenco2010ac[colunas]["V6461"] == 1420) | (cenco2010ac[colunas]["V6461"] == 143) | (cenco2010ac[colunas]["V6461"] == 1431) | (cenco2010ac[colunas]["V6461"] == 1439) | (cenco2010ac[colunas]["V6461"] == 2654)))
+conFeijoE = ((cenco2010ac[colunas]["V0002"] == 302) & (cenco2010ac[colunas]["V0633"] == 12) & ((cenco2010ac[colunas]["V6461"] == 1) | (cenco2010ac[colunas]["V6461"] == 11) | (cenco2010ac[colunas]["V6461"] == 112) | (cenco2010ac[colunas]["V6461"] == 1120) | (cenco2010ac[colunas]["V6461"] == 1346) | (cenco2010ac[colunas]["V6461"] == 1349) | (cenco2010ac[colunas]["V6461"] == 14) | (cenco2010ac[colunas]["V6461"] == 141) | (cenco2010ac[colunas]["V6461"] == 1411) | (cenco2010ac[colunas]["V6461"] == 1412) | (cenco2010ac[colunas]["V6461"] == 142) | (cenco2010ac[colunas]["V6461"] == 1420) | (cenco2010ac[colunas]["V6461"] == 143) | (cenco2010ac[colunas]["V6461"] == 1431) | (cenco2010ac[colunas]["V6461"] == 1439) | (cenco2010ac[colunas]["V6461"] == 2654)))
+conFeijoS = ((cenco2010ac[colunas]["V0002"] == 302) & (cenco2010ac[colunas]["V0633"] != 12) & ((cenco2010ac[colunas]["V6461"] == 1) | (cenco2010ac[colunas]["V6461"] == 11) | (cenco2010ac[colunas]["V6461"] == 112) | (cenco2010ac[colunas]["V6461"] == 1120) | (cenco2010ac[colunas]["V6461"] == 1346) | (cenco2010ac[colunas]["V6461"] == 1349) | (cenco2010ac[colunas]["V6461"] == 14) | (cenco2010ac[colunas]["V6461"] == 141) | (cenco2010ac[colunas]["V6461"] == 1411) | (cenco2010ac[colunas]["V6461"] == 1412) | (cenco2010ac[colunas]["V6461"] == 142) | (cenco2010ac[colunas]["V6461"] == 1420) | (cenco2010ac[colunas]["V6461"] == 143) | (cenco2010ac[colunas]["V6461"] == 1431) | (cenco2010ac[colunas]["V6461"] == 1439) | (cenco2010ac[colunas]["V6461"] == 2654)))
+conTarauacaE = ((cenco2010ac[colunas]["V0002"] == 609) & (cenco2010ac[colunas]["V0633"] == 12) & ((cenco2010ac[colunas]["V6461"] == 1) | (cenco2010ac[colunas]["V6461"] == 11) | (cenco2010ac[colunas]["V6461"] == 112) | (cenco2010ac[colunas]["V6461"] == 1120) | (cenco2010ac[colunas]["V6461"] == 1346) | (cenco2010ac[colunas]["V6461"] == 1349) | (cenco2010ac[colunas]["V6461"] == 14) | (cenco2010ac[colunas]["V6461"] == 141) | (cenco2010ac[colunas]["V6461"] == 1411) | (cenco2010ac[colunas]["V6461"] == 1412) | (cenco2010ac[colunas]["V6461"] == 142) | (cenco2010ac[colunas]["V6461"] == 1420) | (cenco2010ac[colunas]["V6461"] == 143) | (cenco2010ac[colunas]["V6461"] == 1431) | (cenco2010ac[colunas]["V6461"] == 1439) | (cenco2010ac[colunas]["V6461"] == 2654)))
+conTarauacaS = ((cenco2010ac[colunas]["V0002"] == 609) & (cenco2010ac[colunas]["V0633"] != 12) & ((cenco2010ac[colunas]["V6461"] == 1) | (cenco2010ac[colunas]["V6461"] == 11) | (cenco2010ac[colunas]["V6461"] == 112) | (cenco2010ac[colunas]["V6461"] == 1120) | (cenco2010ac[colunas]["V6461"] == 1346) | (cenco2010ac[colunas]["V6461"] == 1349) | (cenco2010ac[colunas]["V6461"] == 14) | (cenco2010ac[colunas]["V6461"] == 141) | (cenco2010ac[colunas]["V6461"] == 1411) | (cenco2010ac[colunas]["V6461"] == 1412) | (cenco2010ac[colunas]["V6461"] == 142) | (cenco2010ac[colunas]["V6461"] == 1420) | (cenco2010ac[colunas]["V6461"] == 143) | (cenco2010ac[colunas]["V6461"] == 1431) | (cenco2010ac[colunas]["V6461"] == 1439) | (cenco2010ac[colunas]["V6461"] == 2654)))
+
+#Carrega os resultados em cada municipio
+rstRioBrancoE=cenco2010ac[conRioBrancoE][colunas].count()['V6461']
+rstRioBrancoS=cenco2010ac[conRioBrancoS][colunas].count()['V6461']
+rstAcrelandiaE=cenco2010ac[conAcrelandiaE][colunas].count()['V6461']
+rstAcrelandiaS=cenco2010ac[conAcrelandiaS][colunas].count()['V6461']
+rstCapixabaE=cenco2010ac[conCapixabaE][colunas].count()['V6461']
+rstCapixabaS=cenco2010ac[conCapixabaS][colunas].count()['V6461']
+rstPortoAcreE=cenco2010ac[conPortoAcreE][colunas].count()['V6461']
+rstPortoAcreS=cenco2010ac[conPortoAcreS][colunas].count()['V6461']
+rstXapuriE=cenco2010ac[conXapuriE][colunas].count()['V6461']
+rstXapuriS=cenco2010ac[conXapuriS][colunas].count()['V6461']
+rstSenaMadureiraE=cenco2010ac[conSenaMadureiraE][colunas].count()['V6461']
+rstSenaMadureiraS=cenco2010ac[conSenaMadureiraS][colunas].count()['V6461']
+rstFeijoE=cenco2010ac[conFeijoE][colunas].count()['V6461']
+rstFeijoS=cenco2010ac[conFeijoS][colunas].count()['V6461']
+rstTarauacaE=cenco2010ac[conTarauacaE][colunas].count()['V6461']
+rstTarauacaS=cenco2010ac[conTarauacaS][colunas].count()['V6461']
+
+#Grafico em barras mostrando o nível de especialização de gestores e diretores
+plt.barh(1, rstRioBrancoE, 2, label='Com Especialização de Nível Superior',color='green')
+plt.barh(3, rstRioBrancoS, 2,label='Sem Especialização de Nível Superior',color='blue')
+plt.barh(6, rstAcrelandiaE, 2,color='green')
+plt.barh(8, rstAcrelandiaS, 2,color='blue')
+plt.barh(11, rstCapixabaE, 2,color='green')
+plt.barh(13, rstCapixabaS, 2,color='blue')
+plt.barh(16, rstPortoAcreE, 2,color='green')
+plt.barh(18, rstPortoAcreS, 2,color='blue')
+plt.barh(21, rstXapuriE, 2,color='green')
+plt.barh(23, rstXapuriS, 2,color='blue')
+plt.barh(26, rstSenaMadureiraE, 2,color='green')
+plt.barh(28, rstSenaMadureiraS, 2,color='blue')
+plt.barh(31, rstFeijoE, 2, color='green')
+plt.barh(33, rstFeijoS, 2, color='blue')
+plt.barh(36, rstTarauacaE, 2,color='green')
+plt.barh(38, rstTarauacaS, 2,color='blue')
+
+plt.xlabel('Total de Pessoas')
+plt.title('Pessoas ocupando cargo de Direção ou Gestão')
+
+plt.yticks((3,8,13,18,23,28,33,38), ('Rio Branco', 'Acrelandia', 'Capixaba', 'Porto Acre', 'Xapuri', 'Sena Madureira', 'Feijo', 'Tarauaca'), rotation=45)
+plt.legend(loc='best')
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Hipotese 4: Pessoas com baixa instrução trabalham mais horas por semana.
 [Campo 1]: V0633 (Valores: 01 – Creche, Pré-escolar (Maternal e Jardim de Infância), Classe de alfabetização - CA. / 02 - Alfabetização de Jovens e Adultos. / 03 – Antigo Primário (Elementar). / 04 – Antigo Ginásio - Médio 1 Ciclo. / 05 – Regular do Ensino Fundamental ou 1 Grau - da 1 série/4ano. / 06 – Regular do Ensino Fundamental ou 1 Grau - da 4 série/5ano. / 07 - Regular do Ensino Fundamental ou 1 Grau - da 5 a 8 série do 6 ao 9 ano. / 08 - Supletivo do Ensino Fundamental ou do 1 Grau. / 09 - Antigo Científico, Clássico, etc. (Médio 2 ciclo). / 10 - Regular ou Supletivo do Ensino Médio ou do 2 Grau. / 11 - Superior de Graduação. / 12 - Especialização de Nível Superior - mínimo de 360 horas. / 13 – Mestrado. / 14 - Doutorado. / Branco: para os que frequentavam escola ou creche ou aqueles que nunca frequentaram).
