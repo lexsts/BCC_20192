@@ -209,6 +209,56 @@ Será realizada a análise no município de Rio Branco (Estado do Acre).
 
 Hipotese 1: A ocorrência de natimortos tem maior frequência em famílias de baixa renda.
 [Variáveis que serão utilizadas]: Pessoas de 10 anos ou mais de idade por classes de rendimento nominal mensal de até 1 (salário mínimo), Pessoas de 10 anos ou mais de idade por classes de rendimento nominal mensal de mais de 1 a 2 (salário mínimo), Pessoas de 10 anos ou mais de idade por classes de rendimento nominal mensal de mais de 2 a 3 (salário mínimo), Pessoas de 10 anos ou mais de idade por classes de rendimento nominal mensal de mais de 3 a 5 (salário mínimo), Pessoas de 10 anos ou mais de idade por classes de rendimento nominal mensal de mais de 5 a 10 (salário mínimo), Pessoas de 10 anos ou mais de idade por classes de rendimento nominal mensal de mais de 10 a 20 (salário mínimo), Pessoas de 10 anos ou mais de idade por classes de rendimento nominal mensal de mais de 20 (salário mínimo), Pessoas de 10 anos ou mais de idade por classes de rendimento nominal mensal - sem rendimento, Filhos tidos pelas mulheres de 10 anos ou mais de idade nascidos mortos.
+[CÓDIGO PYTHON]:
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+#Abre o arquivo CSV
+cenco2010ac = pd.read_csv("/home/alex/Documents/Bases_Computacionais/censo_ac_pes/censo2010_ACpes.csv", sep=",")
+
+#Colunas analisadas V0002-Municipio, V0669-Filhos nascidos morto, V5070-Renda percapita
+colunas=["V0002","V0669","V5070"]
+
+#Seleciona apenas os municiíos da hipotese
+conRioBranco = ((cenco2010ac[colunas]["V0002"] == 401) & (cenco2010ac[colunas]["V0669"] == 1))
+conAcrelandia = ((cenco2010ac[colunas]["V0002"] == 13) & (cenco2010ac[colunas]["V0669"] == 1))
+conCapixaba = ((cenco2010ac[colunas]["V0002"] == 179) & (cenco2010ac[colunas]["V0669"] == 1)) 
+conPortoAcre = ((cenco2010ac[colunas]["V0002"] == 807) & (cenco2010ac[colunas]["V0669"] == 1)) 
+conXapuri = ((cenco2010ac[colunas]["V0002"] == 708) & (cenco2010ac[colunas]["V0669"] == 1)) 
+conSenaMadureira = ((cenco2010ac[colunas]["V0002"] == 500) & (cenco2010ac[colunas]["V0669"] == 1)) 
+conFeijo = ((cenco2010ac[colunas]["V0002"] == 302) & (cenco2010ac[colunas]["V0669"] == 1)) 
+conTarauaca = ((cenco2010ac[colunas]["V0002"] == 609) & (cenco2010ac[colunas]["V0669"] == 1)) 
+
+
+#Carrega os resultados em cada municipio
+rstRioBranco=cenco2010ac[colunas][conRioBranco]
+rstAcrelandia=cenco2010ac[colunas][conAcrelandia]
+rstCapixaba=cenco2010ac[colunas][conCapixaba]
+rstPortoAcre=cenco2010ac[colunas][conPortoAcre]
+rstXapuri=cenco2010ac[colunas][conXapuri]
+rstSenaMadureira=cenco2010ac[colunas][conSenaMadureira]
+rstFeijo=cenco2010ac[colunas][conFeijo]
+rstTarauaca=cenco2010ac[colunas][conTarauaca]
+
+#Grafico scatter mostrando a ocorrência de natimortos nas familias com renda percapita inferior a R$2000,00
+plt.scatter(rstRioBranco["V5070"],rstRioBranco["V5070"],color='green',alpha=0.09, cmap='viridis',s=5000)
+plt.scatter(rstAcrelandia["V5070"],rstAcrelandia["V5070"],color='orange',alpha=0.09, cmap='viridis',s=4300)
+plt.scatter(rstCapixaba["V5070"],rstCapixaba["V5070"],color='aqua',alpha=0.09, cmap='viridis',s=3600)
+plt.scatter(rstPortoAcre["V5070"],rstPortoAcre["V5070"],color='gray',alpha=0.09, cmap='viridis',s=2900)
+plt.scatter(rstXapuri["V5070"],rstXapuri["V5070"],color='pink',alpha=0.09, cmap='viridis',s=2200)
+plt.scatter(rstSenaMadureira["V5070"],rstSenaMadureira["V5070"],color='purple',alpha=0.09, cmap='viridis',s=1500)
+plt.scatter(rstFeijo["V5070"],rstFeijo["V5070"],color='yellow',alpha=0.09, cmap='viridis',s=800)
+plt.scatter(rstTarauaca["V5070"],rstTarauaca["V5070"],color='blue',alpha=0.09, cmap='viridis',s=100)
+plt.xlabel("Renda familiar percapita")
+plt.ylabel("Renda familiar percapita")
+plt.title("Ocorrência de natimortos")
+plt.legend(('Rio Branco','Acrelandia','Capixaba','Porto Acre','Xapuri','Sena Madureira','Feijo','Tarauaca'),loc='upper left')
+
+
+
+
+
 
 Hipotese 2: Pessoas sem ensino superior casam-se mais do que pessoas com ensino superior.
 [Campo 1]: V0633 (Valores: 01 – Creche, Pré-escolar (Maternal e Jardim de Infância), Classe de alfabetização - CA. / 02 - Alfabetização de Jovens e Adultos. / 03 – Antigo Primário (Elementar). / 04 – Antigo Ginásio - Médio 1 Ciclo. / 05 – Regular do Ensino Fundamental ou 1 Grau - da 1 série/4ano. / 06 – Regular do Ensino Fundamental ou 1 Grau - da 4 série/5ano. / 07 - Regular do Ensino Fundamental ou 1 Grau - da 5 a 8 série do 6 ao 9 ano. / 08 - Supletivo do Ensino Fundamental ou do 1 Grau. / 09 - Antigo Científico, Clássico, etc. (Médio 2 ciclo). / 10 - Regular ou Supletivo do Ensino Médio ou do 2 Grau. / 11 - Superior de Graduação. / 12 - Especialização de Nível Superior - mínimo de 360 horas. / 13 – Mestrado. / 14 - Doutorado. / Branco: para os que frequentavam escola ou creche ou aqueles que nunca frequentaram).
